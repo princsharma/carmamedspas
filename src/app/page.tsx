@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { LandingAmbient } from "@/components/landing/LandingAmbient";
 import { SplashScreen } from "@/components/landing/SplashScreen";
@@ -43,7 +43,7 @@ export default function Page() {
             </section>
           </ScrollStackSection>
 
-          <ScrollStackSection className="scroll-stack-panel--dark">
+          <ScrollStackSection className="scroll-stack-panel--light">
             <MedicationGuide />
           </ScrollStackSection>
 

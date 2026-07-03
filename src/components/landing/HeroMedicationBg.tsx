@@ -11,35 +11,35 @@ export function HeroMedicationBg() {
       >
         <defs>
           <linearGradient id="heroMedBg" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#1a100c" />
-            <stop offset="45%" stopColor="#241612" />
-            <stop offset="100%" stopColor="#1a100c" />
+            <stop offset="0%" stopColor="#ffffff" />
+            <stop offset="45%" stopColor="#f6faf1" />
+            <stop offset="100%" stopColor="#f0f5ea" />
           </linearGradient>
 
           <radialGradient id="heroMedGlow" cx="50%" cy="42%" r="50%">
-            <stop offset="0%" stopColor="#b56e56" stopOpacity="0.28" />
-            <stop offset="55%" stopColor="#b56e56" stopOpacity="0.06" />
-            <stop offset="100%" stopColor="#b56e56" stopOpacity="0" />
+            <stop offset="0%" stopColor="#8dc63f" stopOpacity="0.14" />
+            <stop offset="55%" stopColor="#8dc63f" stopOpacity="0.05" />
+            <stop offset="100%" stopColor="#8dc63f" stopOpacity="0" />
           </radialGradient>
 
           <linearGradient id="pillBodyA" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#fff8f4" />
-            <stop offset="50%" stopColor="#fff8f4" />
-            <stop offset="50%" stopColor="#b56e56" />
-            <stop offset="100%" stopColor="#954a37" />
+            <stop offset="0%" stopColor="#f7fcf0" />
+            <stop offset="50%" stopColor="#f7fcf0" />
+            <stop offset="50%" stopColor="#8dc63f" />
+            <stop offset="100%" stopColor="#6ea52f" />
           </linearGradient>
 
           <linearGradient id="pillBodyB" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#d4a088" />
-            <stop offset="50%" stopColor="#d4a088" />
-            <stop offset="50%" stopColor="#fff8f4" />
-            <stop offset="100%" stopColor="#e8c4b4" />
+            <stop offset="0%" stopColor="#b3dc7a" />
+            <stop offset="50%" stopColor="#b3dc7a" />
+            <stop offset="50%" stopColor="#f7fcf0" />
+            <stop offset="100%" stopColor="#cfe8a8" />
           </linearGradient>
 
           <linearGradient id="bondGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#d4a088" stopOpacity="0.15" />
-            <stop offset="50%" stopColor="#e8c4b4" stopOpacity="0.55" />
-            <stop offset="100%" stopColor="#d4a088" stopOpacity="0.15" />
+            <stop offset="0%" stopColor="#b3dc7a" stopOpacity="0.15" />
+            <stop offset="50%" stopColor="#cfe8a8" stopOpacity="0.55" />
+            <stop offset="100%" stopColor="#b3dc7a" stopOpacity="0.15" />
           </linearGradient>
 
           <filter id="heroMedSoft" x="-40%" y="-40%" width="180%" height="180%">
@@ -70,16 +70,16 @@ export function HeroMedicationBg() {
 
         {/* Molecule atoms */}
         <g className="hero-med-molecule" filter="url(#heroMedSoft)">
-          <circle cx="620" cy="340" r="14" fill="#e8c4b4" opacity="0.9" />
-          <circle cx="720" cy="300" r="16" fill="#d4a088" opacity="0.95" />
-          <circle cx="820" cy="340" r="14" fill="#e8c4b4" opacity="0.9" />
-          <circle cx="860" cy="430" r="13" fill="#b56e56" opacity="0.85" />
-          <circle cx="780" cy="500" r="14" fill="#d4a088" opacity="0.9" />
-          <circle cx="660" cy="500" r="13" fill="#e8c4b4" opacity="0.85" />
-          <circle cx="580" cy="430" r="14" fill="#b56e56" opacity="0.9" />
-          <circle cx="720" cy="220" r="11" fill="#fff8f4" opacity="0.75" />
-          <circle cx="910" cy="310" r="10" fill="#d4a088" opacity="0.8" />
-          <circle cx="980" cy="360" r="9" fill="#e8c4b4" opacity="0.75" />
+          <circle cx="620" cy="340" r="14" fill="#cfe8a8" opacity="0.9" />
+          <circle cx="720" cy="300" r="16" fill="#b3dc7a" opacity="0.95" />
+          <circle cx="820" cy="340" r="14" fill="#cfe8a8" opacity="0.9" />
+          <circle cx="860" cy="430" r="13" fill="#8dc63f" opacity="0.85" />
+          <circle cx="780" cy="500" r="14" fill="#b3dc7a" opacity="0.9" />
+          <circle cx="660" cy="500" r="13" fill="#cfe8a8" opacity="0.85" />
+          <circle cx="580" cy="430" r="14" fill="#8dc63f" opacity="0.9" />
+          <circle cx="720" cy="220" r="11" fill="#f7fcf0" opacity="0.75" />
+          <circle cx="910" cy="310" r="10" fill="#b3dc7a" opacity="0.8" />
+          <circle cx="980" cy="360" r="9" fill="#cfe8a8" opacity="0.75" />
         </g>
 
         {/* Floating pills */}
@@ -101,9 +101,9 @@ export function HeroMedicationBg() {
 
         {/* Injection pen silhouette */}
         <g className="hero-med-pen">
-          <rect x="1180" y="180" width="18" height="140" rx="9" fill="#d4a088" opacity="0.18" />
-          <rect x="1186" y="160" width="6" height="28" rx="3" fill="#e8c4b4" opacity="0.22" />
-          <polygon points="1189,320 1192,340 1186,340" fill="#b56e56" opacity="0.2" />
+          <rect x="1180" y="180" width="18" height="140" rx="9" fill="#b3dc7a" opacity="0.18" />
+          <rect x="1186" y="160" width="6" height="28" rx="3" fill="#cfe8a8" opacity="0.22" />
+          <polygon points="1189,320 1192,340 1186,340" fill="#8dc63f" opacity="0.2" />
         </g>
 
         {/* Peptide helix dots */}
@@ -118,7 +118,7 @@ export function HeroMedicationBg() {
                 cx={x}
                 cy={y}
                 r={5 - (i % 3)}
-                fill={i % 2 === 0 ? "#e8c4b4" : "#d4a088"}
+                fill={i % 2 === 0 ? "#cfe8a8" : "#b3dc7a"}
                 opacity={0.45 + (i % 3) * 0.08}
               />
             );
@@ -136,7 +136,7 @@ export function HeroMedicationBg() {
               cx={cx}
               cy={cy}
               r={3 + (i % 2)}
-              fill="#e8c4b4"
+              fill="#cfe8a8"
               opacity={0.25 + (i % 3) * 0.1}
               className={`hero-med-dot hero-med-dot--${i + 1}`}
             />
@@ -144,8 +144,8 @@ export function HeroMedicationBg() {
         </g>
 
         {/* Pulse rings */}
-        <circle className="hero-med-ring hero-med-ring--1" cx="720" cy="390" r="180" fill="none" stroke="#b56e56" strokeWidth="1" opacity="0.2" />
-        <circle className="hero-med-ring hero-med-ring--2" cx="720" cy="390" r="240" fill="none" stroke="#d4a088" strokeWidth="1" opacity="0.12" />
+        <circle className="hero-med-ring hero-med-ring--1" cx="720" cy="390" r="180" fill="none" stroke="#8dc63f" strokeWidth="1" opacity="0.2" />
+        <circle className="hero-med-ring hero-med-ring--2" cx="720" cy="390" r="240" fill="none" stroke="#b3dc7a" strokeWidth="1" opacity="0.12" />
       </svg>
 
       <div className="hero-med-scrim" />

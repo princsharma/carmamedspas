@@ -2,9 +2,11 @@
 
 import { Reveal } from "./Reveal";
 
+import type { ReactNode } from "react";
+
 type SectionIntroProps = {
   kicker: string;
-  title: string;
+  title: ReactNode;
   description?: string;
   align?: "center" | "left";
   tone?: "light" | "dark";
@@ -30,7 +32,9 @@ export function SectionIntro({
         .filter(Boolean)
         .join(" ")}
     >
-      <span className="section-intro-kicker">
+      <span
+        className={`section-intro-kicker${tone === "dark" ? " section-intro-kicker--dark" : ""}`}
+      >
         <span className="section-intro-kicker-glow" aria-hidden="true" />
         {kicker}
       </span>
