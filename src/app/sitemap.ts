@@ -1,8 +1,7 @@
 import type { MetadataRoute } from "next";
 import { medications } from "@/data/medications";
 import { legalSlugs } from "@/data/legal";
-
-const baseUrl = "https://carmamedspas.com";
+import { siteUrl } from "@/data/site";
 
 type Freq = NonNullable<MetadataRoute.Sitemap[number]["changeFrequency"]>;
 type Route = { path: string; changeFrequency: Freq; priority: number };
@@ -35,7 +34,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   return [...staticRoutes, ...medicationRoutes, ...legalRoutes].map((route) => ({
-    url: `${baseUrl}${route.path}`,
+    url: `${siteUrl}${route.path}`,
     lastModified,
     changeFrequency: route.changeFrequency,
     priority: route.priority,

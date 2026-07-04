@@ -1,5 +1,8 @@
 import { images } from "@/data/images";
 
+/** Canonical production origin — used for metadata, sitemap, and robots. */
+export const siteUrl = "https://carmamedspas.com";
+
 /** Company contact + brand facts */
 export const site = {
   name: "CARMA Med Spa",

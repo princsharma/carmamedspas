@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Manrope } from "next/font/google";
+import { site, siteUrl } from "@/data/site";
 import "./globals.css";
 import "./premium.css";
 
@@ -20,9 +21,35 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "CARMA Med Spa — Medical Weight Loss, Beautifully Simple",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "CARMA Med Spa — Medical Weight Loss, Beautifully Simple",
+    template: "%s | CARMA Med Spa",
+  },
   description:
     "Clinician-guided GLP-1 weight care — evaluated online, personalised to your body, and supported every step. Enroll for $75 and connect with a licensed provider.",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: siteUrl,
+    siteName: site.name,
+    title: "CARMA Med Spa — Medical Weight Loss, Beautifully Simple",
+    description:
+      "Clinician-guided GLP-1 weight care — evaluated online, personalised to your body, and supported every step.",
+  },
 };
 
 export default function RootLayout({

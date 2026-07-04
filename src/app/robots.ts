@@ -1,6 +1,5 @@
 import type { MetadataRoute } from "next";
-
-const baseUrl = "https://carmamedspas.com";
+import { siteUrl } from "@/data/site";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -9,7 +8,7 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/patient-portal"],
     },
-    sitemap: `${baseUrl}/sitemap.xml`,
-    host: baseUrl,
+    sitemap: `${siteUrl}/sitemap.xml`,
+    host: siteUrl,
   };
 }
