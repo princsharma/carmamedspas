@@ -1,4 +1,4 @@
-import { MedicationPageView } from "@/components/medication/MedicationPageView";
+import { PremiumMedicationPage } from "@/components/premium/PremiumMedicationPage";
 import {
   getMedicationBySlug,
   medications,
@@ -36,5 +36,5 @@ export default async function MedicationPage({ params }: PageProps) {
     notFound();
   }
 
-  return <MedicationPageView medication={medication} />;
+  return <PremiumMedicationPage medication={medication} />;
 }

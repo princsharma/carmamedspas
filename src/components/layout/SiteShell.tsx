@@ -10,7 +10,6 @@ import type { ReactNode } from "react";
 
 type SiteShellProps = {
   children: ReactNode;
-  showSplash?: boolean;
 };
 
 export function SiteShell({ children }: SiteShellProps) {

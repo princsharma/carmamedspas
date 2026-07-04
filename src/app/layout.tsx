@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Manrope } from "next/font/google";
 import "./globals.css";
+import "./premium.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -12,10 +13,16 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const manrope = Manrope({
+  variable: "--font-manrope",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+});
+
 export const metadata: Metadata = {
-  title: "CARMA Med Spa — Clinician-Guided Online GLP-1 Weight Loss Program",
+  title: "CARMA Med Spa — Medical Weight Loss, Beautifully Simple",
   description:
-    "Secure and confidential GLP-1 evaluations with licensed medical providers. Enroll for $75 and connect with a clinician to determine treatment eligibility.",
+    "Clinician-guided GLP-1 weight care — evaluated online, personalised to your body, and supported every step. Enroll for $75 and connect with a licensed provider.",
 };
 
 export default function RootLayout({
@@ -26,7 +33,8 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      data-scroll-behavior="smooth"
+      className={`${geistSans.variable} ${geistMono.variable} ${manrope.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>

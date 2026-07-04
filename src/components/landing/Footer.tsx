@@ -109,6 +109,10 @@ export function Footer() {
             </p>
           </div>
         </div>
+
+        <div className="footer-wordmark" aria-hidden="true">
+          carma
+        </div>
       </div>
     </footer>
   );

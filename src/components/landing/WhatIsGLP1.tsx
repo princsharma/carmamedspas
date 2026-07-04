@@ -51,25 +51,23 @@ export function WhatIsGLP1() {
 
       <div className="glp1-panel">
         <div className="wrap">
-          <Stagger className="glp1-bento" stagger={0.12}>
+          <Stagger className="glp1-features" stagger={0.12}>
             {features.map((feature, index) => (
-              <StaggerItem
-                key={feature.title}
-                className={`glp1-feature${index === 0 ? " glp1-feature--lead" : ""}${index === 1 ? " glp1-feature--mid" : ""}`}
-              >
-                <article className="glp1-feature-inner">
-                  <div className="glp1-feature-photo">
+              <StaggerItem key={feature.title}>
+                <article
+                  className={`feature-split${index % 2 === 1 ? " feature-split--reverse" : ""}`}
+                >
+                  <div className="feature-split-media">
                     <Image
                       src={feature.image.src}
                       alt={feature.image.alt}
                       fill
                       sizes="(max-width: 960px) 100vw, 560px"
-                      className="glp1-feature-photo-img"
+                      className="feature-split-img"
                     />
-                    <div className="glp1-feature-photo-scrim" />
                   </div>
-                  <div className="glp1-feature-body">
-                    <span className="glp1-feature-index">{feature.index}</span>
+                  <div className="feature-split-copy">
+                    <span className="feature-split-index">{feature.index}</span>
                     <h3>{feature.title}</h3>
                     <p>{feature.description}</p>
                   </div>

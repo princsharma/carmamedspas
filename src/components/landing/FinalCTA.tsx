@@ -13,7 +13,7 @@ const trustItems = [
 
 export function FinalCTA() {
   return (
-    <section className="section section--snap section--cta section--glow" id="consult">
+    <section className="section section--premium section--cta section--glow" id="consult">
       <div className="wrap cta-banner cta-banner--premium">
         <div className="cta-bg" aria-hidden="true">
           <Image

@@ -54,18 +54,17 @@ export function ConsultBookingModal() {
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [reference, setReference] = useState<string | null>(null);
+  const [wasOpen, setWasOpen] = useState(false);
 
-  useEffect(() => {
+  if (isOpen !== wasOpen) {
+    setWasOpen(isOpen);
     if (isOpen) {
-      setForm((current) => ({
-        ...initialForm,
-        medication: preferredMedication,
-      }));
+      setForm({ ...initialForm, medication: preferredMedication });
       setStep(1);
       setError(null);
       setReference(null);
     }
-  }, [isOpen, preferredMedication]);
+  }
 
   useEffect(() => {
     if (!isOpen) return;
