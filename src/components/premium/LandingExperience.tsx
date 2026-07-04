@@ -2,8 +2,6 @@
 
 import { PremiumShell } from "./PremiumShell";
 import { Hero } from "./Hero";
-import { Journey } from "./Journey";
-import { TrustedBy } from "./TrustedBy";
 import { MedicationShowcase } from "./MedicationShowcase";
 import { BmiCalculator } from "./BmiCalculator";
 import { HowItWorks } from "./HowItWorks";
@@ -18,8 +16,6 @@ export function LandingExperience() {
   return (
     <PremiumShell>
       <Hero />
-      <Journey />
-      <TrustedBy />
       <MedicationShowcase />
       <BmiCalculator />
       <HowItWorks />

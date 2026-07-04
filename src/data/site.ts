@@ -5,6 +5,9 @@ export const site = {
   name: "CARMA Med Spa",
   phone: "(888) 315-1715",
   email: "care@carmamedspas.com",
+  /** External scheduling / evaluation portal — where all booking CTAs go. */
+  bookingUrl:
+    "https://ongoweightloss.videovisitmd.com/f/vshop-schedule?utm_source=carma-med-spas-home-page",
   evaluationPrice: 75,
   states: [
     "Louisiana", "Alabama", "California", "Georgia", "Colorado", "Ohio",

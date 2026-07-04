@@ -1,298 +1,365 @@
 "use client";
 
+import { motion, useReducedMotion, type Variants } from "framer-motion";
 import Image from "next/image";
-import { useEffect, useRef, type CSSProperties } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import { images } from "@/data/images";
-import { registerGsap, gsap, ScrollTrigger } from "./gsap";
 import { ConsultButton } from "./ConsultButton";
 import { MagneticButton } from "./MagneticButton";
 
+const EASE = [0.22, 1, 0.36, 1] as const;
+
+const container: Variants = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
+};
+const item: Variants = {
+  hidden: { opacity: 0, y: 22, filter: "blur(8px)" },
+  show: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.7, ease: EASE } },
+};
+
+const trust = [
+  { icon: <Stars />, label: "4.9/5 rating" },
+  { icon: <UsersIcon />, label: "50,000+ patients" },
+  { icon: <ShieldIcon />, label: "HIPAA compliant" },
+  { icon: <TruckIcon />, label: "Free shipping" },
+  { icon: <BadgeIcon />, label: "Licensed providers" },
+];
+
+const press = ["NBC", "Yahoo", "Forbes", "Healthline", "USA Today"];
+
+const stats = [
+  { value: "50,000+", label: "Patients treated", icon: <UsersIcon /> },
+  { value: "4.9★", label: "Average rating", icon: <StarIcon /> },
+  { value: "18%", label: "Average weight loss*", icon: <TrendIcon /> },
+  { value: "24 hrs", label: "Average doctor review", icon: <ClockIcon /> },
+];
+
 export function Hero() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const penRef = useRef<HTMLDivElement>(null);
-  const glowRef = useRef<HTMLDivElement>(null);
-  const cardA = useRef<HTMLDivElement>(null);
-  const cardB = useRef<HTMLDivElement>(null);
-  const cardC = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    registerGsap();
-
-    const ctx = gsap.context(() => {
-      // Entrance
-      gsap.from("[data-hero-in]", {
-        y: 34,
-        opacity: 0,
-        filter: "blur(10px)",
-        duration: 1.1,
-        ease: "power3.out",
-        stagger: 0.09,
-        delay: 0.15,
-      });
-
-      if (penRef.current) {
-        gsap.from(penRef.current, {
-          y: 60,
-          opacity: 0,
-          scale: 0.9,
-          rotate: -10,
-          duration: 1.4,
-          ease: "power3.out",
-          delay: 0.3,
-        });
-      }
-
-      if (reduce) return;
-
-      // Cinematic scrub: pen travels + rotates + scales as the page scrolls.
-      if (penRef.current) {
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top top",
-            end: "bottom top",
-            scrub: 1,
-          },
-        });
-        // Rises + scales up while the copy is still on screen, then dramatically
-        // rotates, shrinks and travels up-and-away as the section leaves.
-        tl.to(penRef.current, {
-          yPercent: -18,
-          scale: 1.22,
-          rotate: 6,
-          ease: "power1.inOut",
-        })
-          .to(penRef.current, {
-            yPercent: -70,
-            xPercent: 14,
-            scale: 0.82,
-            rotate: 26,
-            ease: "power2.in",
-          });
-      }
-
-      // Parallax layers at differing speeds for depth.
-      const parallax = (
-        el: HTMLElement | null,
-        y: number,
-        rot = 0,
-      ) => {
-        if (!el) return;
-        gsap.to(el, {
-          yPercent: y,
-          rotate: rot,
-          ease: "none",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top top",
-            end: "bottom top",
-            scrub: 1.4,
-          },
-        });
-      };
-      parallax(glowRef.current, -28);
-      parallax(cardA.current, -60, -6);
-      parallax(cardB.current, 45, 8);
-      parallax(cardC.current, -34, 4);
-
-      // Gentle idle float on the pen while in view.
-      gsap.to(penRef.current, {
-        y: "+=16",
-        duration: 4.5,
-        ease: "sine.inOut",
-        repeat: -1,
-        yoyo: true,
-      });
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
-  // Mouse-driven parallax over the hero stage.
-  useEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-    const onMove = (e: MouseEvent) => {
-      const rect = section.getBoundingClientRect();
-      const rx = (e.clientX - rect.left) / rect.width - 0.5;
-      const ry = (e.clientY - rect.top) / rect.height - 0.5;
-      gsap.to(penRef.current, {
-        x: rx * 26,
-        rotationY: rx * 10,
-        duration: 0.9,
-        ease: "power2.out",
-      });
-      gsap.to([cardA.current, cardC.current], {
-        x: rx * -34,
-        y: ry * -20,
-        duration: 1,
-        ease: "power2.out",
-      });
-      gsap.to(cardB.current, {
-        x: rx * 30,
-        y: ry * 18,
-        duration: 1,
-        ease: "power2.out",
-      });
-    };
-    section.addEventListener("mousemove", onMove);
-    return () => section.removeEventListener("mousemove", onMove);
-  }, []);
+  const reduce = useReducedMotion();
 
   return (
-    <section className="lx-hero" ref={sectionRef} id="top">
-      <div className="lx-hero__bg" aria-hidden="true">
-        <div className="lx-hero__grid" />
-        <div className="lx-glow-orb lx-hero__orb lx-hero__orb--1" />
-        <div className="lx-glow-orb lx-hero__orb lx-hero__orb--2" />
-        <div className="lx-glow-orb lx-hero__orb lx-hero__orb--3" />
+    <section className="lxr" id="top">
+      <div className="lxr__bg" aria-hidden="true">
+        <div className="lxr__glow" />
+        <div className="lxr__blob lxr__blob--1" />
+        <div className="lxr__blob lxr__blob--2" />
+        <div className="lxr__grid" />
+        <div className="lxr__noise" />
       </div>
 
-      <div className="lx-hero__inner lx-wrap">
-        <div className="lx-hero__copy">
-          <ul className="lx-hero__proof" data-hero-in>
-            <li>FDA-approved medications</li>
-            <li>Doctor-prescribed</li>
-            <li>HIPAA-secure</li>
-          </ul>
+      <div className="lxr__inner lx-wrap">
+        <motion.div
+          className="lxr__left"
+          variants={container}
+          initial="hidden"
+          animate="show"
+        >
+          <motion.span className="lxr__badge" variants={item}>
+            <span className="lxr__badge-dot" />
+            Clinician-guided GLP-1 Care
+          </motion.span>
 
-          <h1 className="lx-h1 lx-hero__title" data-hero-in>
-            Lose the weight.
+          <motion.h1 className="lxr__title" variants={item}>
+            Lose Weight.
             <br />
-            <span className="lx-grad-text">Keep it off.</span>
-          </h1>
+            <span className="lx-grad-text">Keep It Off.</span>
+          </motion.h1>
 
-          <p className="lx-lead lx-hero__sub" data-hero-in>
-            Prescription GLP-1 treatment from licensed doctors — the whole
-            journey happens from your phone, personalised to your body and
-            supported every step of the way.
-          </p>
+          <motion.p className="lxr__sub" variants={item}>
+            Personalized GLP-1 treatment from licensed medical providers. Online
+            evaluation, medication delivered if prescribed, and ongoing medical
+            support.
+          </motion.p>
 
-          <div className="lx-hero__actions" data-hero-in>
+          <motion.div className="lxr__actions" variants={item}>
             <ConsultButton className="lx-btn lx-btn--lg">
-              Start your 5-min assessment
+              Start Free Assessment
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                <path
-                  d="M5 12h14M13 6l6 6-6 6"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
+                <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </ConsultButton>
-            <MagneticButton href="#bmi" className="lx-btn lx-btn--ghost lx-btn--lg">
-              Check if I&apos;m eligible
+            <MagneticButton href="#how" className="lx-btn lx-btn--ghost lx-btn--lg">
+              See How It Works
             </MagneticButton>
-          </div>
+          </motion.div>
 
-          <p className="lx-hero__cost" data-hero-in>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M20 6 9 17l-5-5" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            Free to start · $75 online visit · No commitment
-          </p>
+          <motion.ul className="lxr__trust" variants={item}>
+            {trust.map((t) => (
+              <li key={t.label}>
+                <span className="lxr__trust-icon">{t.icon}</span>
+                {t.label}
+              </li>
+            ))}
+          </motion.ul>
 
-          <div className="lx-hero__trust" data-hero-in>
-            <div className="lx-hero__stars">
-              <div className="lx-stars" aria-hidden="true">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} />
-                ))}
-              </div>
-              <span>
-                <strong>4.9/5</strong> · 12,000+ verified reviews
-              </span>
-            </div>
-            <div className="lx-hero__trust-divider" />
-            <ul className="lx-hero__trust-list">
-              <li>Licensed U.S. clinicians</li>
-              <li>Free shipping</li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="lx-hero__stage">
-          <div className="lx-hero__pen-field">
-            <div className="lx-hero__glow" ref={glowRef} />
-            <div className="lx-hero__ring lx-hero__ring--1" />
-            <div className="lx-hero__ring lx-hero__ring--2" />
-
-            <div className="lx-hero__particles" aria-hidden="true">
-              {Array.from({ length: 14 }).map((_, i) => (
-                <span key={i} style={particleStyle(i)} />
+          <motion.div className="lxr__press" variants={item}>
+            <span className="lxr__press-label">As seen in</span>
+            <div className="lxr__press-logos">
+              {press.map((p) => (
+                <span key={p}>{p}</span>
               ))}
             </div>
+          </motion.div>
+        </motion.div>
 
-            <div className="lx-hero__pen" ref={penRef}>
-              <Image
-                src={images.medications.zepbound.src}
-                alt="GLP-1 prescription injection pen"
-                width={620}
-                height={620}
-                priority
-                className="lx-hero__pen-img"
-              />
-              <div className="lx-hero__pen-reflection" />
-            </div>
+        <div className="lxr__right">
+          <motion.div
+            className="lxr-scene"
+            initial={reduce ? false : { opacity: 0, y: 40, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 1, ease: EASE, delay: 0.15 }}
+          >
+            <PhoneMockup />
 
-            <div className="lx-hero__float-card lx-hero__float-card--a" ref={cardA}>
-              <span className="lx-hero__float-label">Average result</span>
-              <strong className="lx-hero__float-value">-18.2%</strong>
-              <span className="lx-hero__float-sub">body weight in studies*</span>
-            </div>
-
-            <div className="lx-hero__float-card lx-hero__float-card--b" ref={cardB}>
-              <span className="lx-hero__float-pill">
-                <span className="lx-hero__float-live" /> Live clinician review
-              </span>
-              <p>Your plan is reviewed by a licensed provider — usually within 24h.</p>
-            </div>
-
-            <div className="lx-hero__float-card lx-hero__float-card--c" ref={cardC}>
-              <div className="lx-hero__avatars">
-                <span />
-                <span />
-                <span />
+            <Float className="lxr-float lxr-float--pen" delay={0.5} amp={14} dur={7} reduce={reduce}>
+              <div className="lxr-pen">
+                <Image
+                  src={images.medications.wegovy.src}
+                  alt="GLP-1 injection pen"
+                  width={180}
+                  height={220}
+                  className="lxr-pen__img"
+                />
               </div>
-              <span className="lx-hero__float-sub">
-                <strong>50,000+</strong> evaluations completed
-              </span>
-            </div>
-          </div>
+            </Float>
+
+            <Float className="lxr-float lxr-float--weight" delay={0.7} amp={10} dur={6} reduce={reduce}>
+              <div className="lxr-chip lxr-chip--metric">
+                <span className="lxr-chip__label">This week</span>
+                <strong className="lxr-chip__value">-4.2 lbs</strong>
+              </div>
+            </Float>
+
+            <Float className="lxr-float lxr-float--approved" delay={0.9} amp={12} dur={7.5} reduce={reduce}>
+              <div className="lxr-chip lxr-chip--approved">
+                <span className="lxr-chip__check">
+                  <CheckIcon />
+                </span>
+                Prescription approved
+              </div>
+            </Float>
+
+            <Float className="lxr-float lxr-float--heart" delay={1.05} amp={9} dur={5.5} reduce={reduce}>
+              <div className="lxr-chip lxr-chip--heart">
+                <HeartIcon />
+                <div>
+                  <strong>62</strong>
+                  <span>bpm</span>
+                </div>
+              </div>
+            </Float>
+          </motion.div>
         </div>
       </div>
 
-      <div className="lx-hero__scroll" aria-hidden="true">
-        <span>Scroll</span>
-        <div className="lx-hero__scroll-line" />
-      </div>
+      <motion.div
+        className="lxr-stats lx-wrap"
+        initial={reduce ? false : { opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.4 }}
+        transition={{ duration: 0.8, ease: EASE }}
+      >
+        {stats.map((s) => (
+          <div key={s.label} className="lxr-stat">
+            <span className="lxr-stat__icon">{s.icon}</span>
+            <strong className="lxr-stat__value">{s.value}</strong>
+            <span className="lxr-stat__label">{s.label}</span>
+          </div>
+        ))}
+      </motion.div>
     </section>
   );
 }
 
-function Star() {
+/* ── Floating wrapper (entrance + gentle infinite float) ── */
+function Float({
+  children,
+  className,
+  style,
+  delay = 0,
+  amp = 12,
+  dur = 6,
+  reduce,
+}: {
+  children: ReactNode;
+  className?: string;
+  style?: CSSProperties;
+  delay?: number;
+  amp?: number;
+  dur?: number;
+  reduce?: boolean | null;
+}) {
   return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+    <motion.div
+      className={className}
+      style={style}
+      initial={reduce ? false : { opacity: 0, scale: 0.8 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.8, ease: EASE, delay }}
+    >
+      <motion.div
+        animate={reduce ? undefined : { y: [0, -amp, 0] }}
+        transition={{ duration: dur, repeat: Infinity, ease: "easeInOut" }}
+      >
+        {children}
+      </motion.div>
+    </motion.div>
+  );
+}
+
+/* ── Phone dashboard mockup ── */
+function PhoneMockup() {
+  return (
+    <div className="lxr-phone">
+      <div className="lxr-phone__glow" aria-hidden="true" />
+      <div className="lxr-phone__frame">
+        <span className="lxr-phone__notch" />
+        <div className="lxr-phone__screen">
+          <div className="lxr-dash__top">
+            <span className="lxr-dash__avatar" />
+            <div className="lxr-dash__hello">
+              <strong>Hi, Sarah</strong>
+              <span>Welcome back</span>
+            </div>
+            <span className="lxr-dash__bell">
+              <BellIcon />
+            </span>
+          </div>
+
+          <div className="lxr-dash__card lxr-dash__progress">
+            <div className="lxr-dash__card-head">
+              <span>Weight progress</span>
+              <em>-18%</em>
+            </div>
+            <svg viewBox="0 0 240 90" className="lxr-dash__chart" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="lxrArea" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="rgba(124,203,94,0.35)" />
+                  <stop offset="100%" stopColor="rgba(124,203,94,0)" />
+                </linearGradient>
+              </defs>
+              <path d="M0 20 C40 24 60 40 100 50 S170 74 240 78 L240 90 L0 90 Z" fill="url(#lxrArea)" />
+              <path d="M0 20 C40 24 60 40 100 50 S170 74 240 78" fill="none" stroke="#0f5e46" strokeWidth="2.5" strokeLinecap="round" />
+              <circle cx="240" cy="78" r="4" fill="#0f5e46" />
+            </svg>
+            <div className="lxr-dash__card-foot">Down 4.2 lbs this month</div>
+          </div>
+
+          <div className="lxr-dash__row">
+            <div className="lxr-dash__mini">
+              <span>Medication</span>
+              <strong>Wegovy</strong>
+              <em className="is-good">On track</em>
+            </div>
+            <div className="lxr-dash__mini">
+              <span>Next visit</span>
+              <strong>Jul 12</strong>
+              <em>2:00 PM</em>
+            </div>
+          </div>
+
+          <div className="lxr-dash__chat">
+            <span className="lxr-dash__chat-avatar" />
+            <div>
+              <strong>Dr. Niles</strong>
+              <p>Great progress — let&apos;s keep your dose steady this month.</p>
+            </div>
+          </div>
+
+          <div className="lxr-dash__status">
+            <span>Prescription</span>
+            <em>
+              <CheckIcon /> Shipped
+            </em>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ── Icons ── */
+function Stars() {
+  return (
+    <span className="lxr-stars">
+      {Array.from({ length: 5 }).map((_, i) => (
+        <StarIcon key={i} />
+      ))}
+    </span>
+  );
+}
+function StarIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
       <path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7L12 2z" />
     </svg>
   );
 }
-
-function particleStyle(i: number): CSSProperties {
-  const positions = [
-    [8, 20], [22, 62], [15, 88], [38, 12], [46, 74], [58, 32],
-    [70, 84], [82, 22], [90, 58], [64, 8], [30, 40], [76, 46],
-    [12, 50], [50, 96],
-  ];
-  const [top, left] = positions[i % positions.length];
-  return {
-    top: `${top}%`,
-    left: `${left}%`,
-    animationDelay: `${(i % 7) * 0.6}s`,
-    animationDuration: `${5 + (i % 5)}s`,
-  };
+function UsersIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+      <circle cx="9" cy="8" r="3.2" stroke="currentColor" strokeWidth="1.7" />
+      <path d="M3.5 20a5.5 5.5 0 0 1 11 0M16 5.2a3.2 3.2 0 0 1 0 6M17 20a5.5 5.5 0 0 0-3-4.9" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+    </svg>
+  );
+}
+function ShieldIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+      <path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" />
+      <path d="M9 12l2 2 4-4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+function TruckIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+      <path d="M3 7h11v8H3zM14 10h4l3 3v2h-7zM7 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM18 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
+    </svg>
+  );
+}
+function BadgeIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+      <circle cx="12" cy="9" r="6" stroke="currentColor" strokeWidth="1.7" />
+      <path d="M9 13l-1.5 8L12 18l4.5 3L15 13M9.5 9l1.7 1.7L15 7" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+function TrendIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+      <path d="M4 17l5-5 4 3 7-8M20 7v4M20 7h-4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+function ClockIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+      <circle cx="12" cy="12" r="8.5" stroke="currentColor" strokeWidth="1.7" />
+      <path d="M12 8v4l3 2" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+    </svg>
+  );
+}
+function CheckIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+      <path d="M20 6 9 17l-5-5" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+function HeartIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 21s-7-4.5-9.3-9.2C1.2 8.5 3 5 6.3 5c2 0 3.2 1 3.7 2 .5-1 1.7-2 3.7-2C17 5 18.8 8.5 21.3 11.8 19 16.5 12 21 12 21z" />
+    </svg>
+  );
+}
+function BellIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+      <path d="M6 9a6 6 0 0 1 12 0c0 5 2 6 2 6H4s2-1 2-6zM10 20a2 2 0 0 0 4 0" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
 }

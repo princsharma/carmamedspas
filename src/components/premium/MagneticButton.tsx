@@ -12,6 +12,8 @@ type MagneticButtonProps = {
   className?: string;
   onClick?: () => void;
   href?: string;
+  target?: string;
+  rel?: string;
   strength?: number;
   ariaLabel?: string;
 };
@@ -25,6 +27,8 @@ export function MagneticButton({
   className = "",
   onClick,
   href,
+  target,
+  rel,
   strength = 0.32,
   ariaLabel,
 }: MagneticButtonProps) {
@@ -67,6 +71,8 @@ export function MagneticButton({
     return (
       <a
         href={href}
+        target={target}
+        rel={rel ?? (target === "_blank" ? "noopener noreferrer" : undefined)}
         aria-label={ariaLabel}
         ref={ref as Ref<HTMLAnchorElement>}
         className={className}

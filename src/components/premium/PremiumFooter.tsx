@@ -19,12 +19,19 @@ const columns = [
   {
     title: "Company",
     links: [
-      { label: "How it works", href: "/how-it-works" },
-      { label: "Pricing", href: "/pricing" },
       { label: "About", href: "/about" },
+      { label: "How it works", href: "/how-it-works" },
       { label: "Our physicians", href: "/our-physicians" },
+      { label: "Careers", href: "/careers" },
+    ],
+  },
+  {
+    title: "Support",
+    links: [
       { label: "FAQ", href: "/faq" },
-      { label: "Contact", href: "/contact" },
+      { label: "Pricing", href: "/pricing" },
+      { label: "Contact us", href: "/contact" },
+      { label: "Patient portal", href: "/patient-portal" },
     ],
   },
   {
@@ -33,8 +40,10 @@ const columns = [
       { label: "Privacy Policy", href: "/legal/privacy" },
       { label: "Terms of Service", href: "/legal/terms" },
       { label: "Medical Disclaimer", href: "/legal/medical-disclaimer" },
-      { label: "HIPAA Notice", href: "/legal/hipaa" },
       { label: "Refund & Billing", href: "/legal/refund-billing" },
+      { label: "Editorial Policy", href: "/legal/editorial-policy" },
+      { label: "Compliance Hub", href: "/legal/compliance-hub" },
+      { label: "HIPAA Notice", href: "/legal/hipaa" },
       { label: "Accessibility", href: "/legal/accessibility" },
     ],
   },
