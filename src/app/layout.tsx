@@ -28,16 +28,7 @@ export const metadata: Metadata = {
   },
   description:
     "Clinician-guided GLP-1 weight care — evaluated online, personalised to your body, and supported every step. Enroll for $75 and connect with a licensed provider.",
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
+  robots: "index, follow",
   alternates: {
     canonical: "/",
   },

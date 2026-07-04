@@ -1,7 +1,10 @@
 import { images } from "@/data/images";
 
-/** Canonical production origin — used for metadata, sitemap, and robots. */
-export const siteUrl = "https://carmamedspas.com";
+/**
+ * Canonical production origin — must match the host Vercel serves.
+ * Apex (carmamedspas.com) 308-redirects to www at the edge.
+ */
+export const siteUrl = "https://www.carmamedspas.com";
 
 /** Company contact + brand facts */
 export const site = {
