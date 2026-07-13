@@ -11,7 +11,6 @@ export function AboutPage() {
   return (
     <>
       <PageHero
-        eyebrow="About CARMA"
         title={
           <>
             Medical weight care,

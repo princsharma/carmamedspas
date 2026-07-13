@@ -12,21 +12,21 @@ const benefits = [
     title: "A plan shaped around your biology",
     body: "No templates. Your clinician tailors medication, dose and titration to your history, labs and goals — then adjusts as your body responds.",
     points: ["Clinician-selected medication", "Gradual, tolerable titration", "Adjustments as you progress"],
-    image: images.showcase.atHome,
+    image: images.home.benefits.biology,
   },
   {
     index: "Supported",
     title: "Care that never leaves your side",
     body: "Message your care team, get side-effect guidance, and stay on track with proactive check-ins — all from your phone.",
     points: ["Unlimited secure messaging", "Proactive clinical check-ins", "Nutrition & lifestyle guidance"],
-    image: images.benefits.banner,
+    image: images.home.benefits.support,
   },
   {
     index: "Lasting",
     title: "Built for results that hold",
     body: "Weight loss is only the beginning. We help you maintain your progress with a long-term plan designed to keep you well.",
     points: ["Maintenance protocols", "Ongoing monitoring", "Real, sustainable habits"],
-    image: images.cta.wellness,
+    image: images.home.benefits.results,
   },
 ];
 

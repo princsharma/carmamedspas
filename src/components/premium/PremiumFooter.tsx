@@ -60,18 +60,15 @@ export function PremiumFooter() {
               <Image
                 src={images.logo.src}
                 alt={images.logo.alt}
-                width={140}
-                height={40}
+                width={images.logo.width}
+                height={images.logo.height}
+                className="lx-footer__logo-img"
+                unoptimized
               />
               <p className="lx-footer__tag">
                 Clinician-guided GLP-1 weight care — evaluated online,
                 personalised to you, delivered with intention.
               </p>
-              <ul className="lx-footer__badges">
-                <li>HIPAA-secure</li>
-                <li>Licensed U.S. clinicians</li>
-                <li>Free shipping</li>
-              </ul>
             </div>
 
             <div className="lx-footer__cols">

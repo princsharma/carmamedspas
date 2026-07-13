@@ -1,6 +1,5 @@
 "use client";
 
-import { PremiumShell } from "./PremiumShell";
 import { Hero } from "./Hero";
 import { MedicationShowcase } from "./MedicationShowcase";
 import { BmiCalculator } from "./BmiCalculator";
@@ -14,7 +13,7 @@ import { FinalCta } from "./FinalCta";
 
 export function LandingExperience() {
   return (
-    <PremiumShell>
+    <>
       <Hero />
       <MedicationShowcase />
       <BmiCalculator />
@@ -25,6 +24,6 @@ export function LandingExperience() {
       <Testimonials />
       <Faq />
       <FinalCta />
-    </PremiumShell>
+    </>
   );
 }

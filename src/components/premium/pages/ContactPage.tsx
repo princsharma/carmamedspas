@@ -9,7 +9,6 @@ export function ContactPage() {
   return (
     <>
       <PageHero
-        eyebrow="Contact us"
         title={
           <>
             We&apos;re here

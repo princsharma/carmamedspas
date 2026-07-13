@@ -42,8 +42,8 @@ export function Bento() {
           {/* Wide image */}
           <div className="lx-bento__tile lx-bento__tile--wide lx-bento__tile--image" data-lx-stagger>
             <Image
-              src={images.showcase.coaching.src}
-              alt={images.showcase.coaching.alt}
+              src={images.home.bento.schedule.src}
+              alt={images.home.bento.schedule.alt}
               fill
               sizes="(max-width: 900px) 100vw, 50vw"
               className="lx-bento__img"
@@ -87,8 +87,8 @@ export function Bento() {
           {/* Wide image 2 */}
           <div className="lx-bento__tile lx-bento__tile--wide lx-bento__tile--image" data-lx-stagger>
             <Image
-              src={images.cta.wellness.src}
-              alt={images.cta.wellness.alt}
+              src={images.home.bento.lasting.src}
+              alt={images.home.bento.lasting.alt}
               fill
               sizes="(max-width: 900px) 100vw, 50vw"
               className="lx-bento__img"

@@ -30,7 +30,7 @@ export function LegalPage({ doc }: { doc: LegalDoc }) {
 
   return (
     <>
-      <PageHero eyebrow="Legal" title={doc.title} subtitle={doc.intro} />
+      <PageHero title={doc.title} subtitle={doc.intro} />
 
       <section className="lx-section lx-section--tight">
         <div className="lx-wrap lxl-layout">

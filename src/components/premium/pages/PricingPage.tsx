@@ -10,7 +10,6 @@ export function PricingPage() {
   return (
     <>
       <PageHero
-        eyebrow="Pricing"
         title={
           <>
             Simple, transparent

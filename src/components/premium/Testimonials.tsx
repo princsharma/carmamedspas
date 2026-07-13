@@ -11,28 +11,28 @@ const stories = [
     result: "-42 lbs in 8 months",
     quote:
       "For the first time the constant food noise just… stopped. The clinician check-ins kept me on track without ever feeling judged.",
-    image: images.stories.maya,
+    image: images.home.testimonials.story1,
   },
   {
     name: "Jules T.",
     result: "-31 lbs in 6 months",
     quote:
       "I was nervous about injections. My provider walked me through everything and adjusted my dose when I needed it. It felt genuinely personal.",
-    image: images.stories.jules,
+    image: images.home.testimonials.story2,
   },
   {
     name: "Sara K.",
     result: "Maintaining for 1 year",
     quote:
       "The maintenance plan is what sold me. This isn't a crash diet — it's the first thing that's ever actually lasted for me.",
-    image: images.stories.sara,
+    image: images.home.testimonials.story3,
   },
   {
     name: "Dana P.",
     result: "-27 lbs in 5 months",
     quote:
       "Everything happened from my phone. No waiting rooms, no awkward conversations — just a real doctor and a plan that worked.",
-    image: images.cta.wellness,
+    image: images.home.testimonials.story4,
   },
 ];
 
@@ -83,11 +83,6 @@ export function Testimonials() {
                     className="lx-tst__img"
                   />
                   <div className="lx-tst__scrim" />
-                  <button type="button" className="lx-tst__play" aria-label="Play story">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
-                  </button>
                   <span className="lx-tst__result">{s.result}</span>
                 </div>
                 <div className="lx-tst__body">

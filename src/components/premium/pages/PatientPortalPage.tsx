@@ -25,7 +25,6 @@ export function PatientPortalPage() {
   return (
     <>
       <PageHero
-        eyebrow="Patient portal"
         title={
           <>
             Your care,

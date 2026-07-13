@@ -10,7 +10,6 @@ export function PhysiciansPage() {
   return (
     <>
       <PageHero
-        eyebrow="Our care team"
         title={
           <>
             Real, licensed

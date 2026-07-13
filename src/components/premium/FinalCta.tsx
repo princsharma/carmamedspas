@@ -47,15 +47,15 @@ export function FinalCta() {
             </ul>
           </div>
 
-          <div className="lx-finalcta__visual">
-            <div className="lx-finalcta__pen-glow" />
-            <div className="lx-finalcta__pen">
+          <div className="lx-finalcta__visual" aria-hidden="true">
+            <div className="lx-finalcta__graph-scene">
+              <div className="lx-finalcta__graph-glow" />
               <Image
-                src={images.medications.wegovy.src}
-                alt="GLP-1 prescription injection pen"
-                width={420}
-                height={520}
-                className="lx-finalcta__pen-img"
+                src={images.cta.graph.src}
+                alt=""
+                fill
+                sizes="(max-width: 860px) 90vw, 55vw"
+                className="lx-finalcta__graph-img"
               />
             </div>
           </div>

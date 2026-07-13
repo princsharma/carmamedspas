@@ -13,7 +13,6 @@ export function WeightLossPage() {
   return (
     <>
       <PageHero
-        eyebrow="Weight-loss program"
         title={
           <>
             Lose weight,

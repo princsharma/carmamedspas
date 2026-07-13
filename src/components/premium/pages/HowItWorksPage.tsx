@@ -157,7 +157,6 @@ export function HowItWorksPage() {
   return (
     <>
       <PageHero
-        eyebrow="Your journey"
         title={
           <>
             How it <span className="lx-grad-text">works</span>

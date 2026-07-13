@@ -12,7 +12,6 @@ export function FaqPage() {
   return (
     <>
       <PageHero
-        eyebrow="FAQ"
         title={
           <>
             Everything you need

@@ -1,9 +1,0 @@
-import { PremiumShell } from "@/components/premium/PremiumShell";
-
-export default function MedicationsLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return <PremiumShell>{children}</PremiumShell>;
-}

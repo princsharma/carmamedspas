@@ -1,9 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion, type Variants } from "framer-motion";
-import Image from "next/image";
-import type { CSSProperties, ReactNode } from "react";
-import { images } from "@/data/images";
+import type { ReactNode } from "react";
 import { ConsultButton } from "./ConsultButton";
 import { MagneticButton } from "./MagneticButton";
 
@@ -41,9 +39,12 @@ export function Hero() {
   return (
     <section className="lxr" id="top">
       <div className="lxr__bg" aria-hidden="true">
+        <div className="lxr__shade" />
+        <div className="lxr__vignette" />
         <div className="lxr__glow" />
         <div className="lxr__blob lxr__blob--1" />
         <div className="lxr__blob lxr__blob--2" />
+        <div className="lxr__blob lxr__blob--3" />
         <div className="lxr__grid" />
         <div className="lxr__noise" />
       </div>
@@ -55,11 +56,6 @@ export function Hero() {
           initial="hidden"
           animate="show"
         >
-          <motion.span className="lxr__badge" variants={item}>
-            <span className="lxr__badge-dot" />
-            Clinician-guided GLP-1 Care
-          </motion.span>
-
           <motion.h1 className="lxr__title" variants={item}>
             Lose Weight.
             <br />
@@ -111,44 +107,6 @@ export function Hero() {
             transition={{ duration: 1, ease: EASE, delay: 0.15 }}
           >
             <PhoneMockup />
-
-            <Float className="lxr-float lxr-float--pen" delay={0.5} amp={14} dur={7} reduce={reduce}>
-              <div className="lxr-pen">
-                <Image
-                  src={images.medications.wegovy.src}
-                  alt="GLP-1 injection pen"
-                  width={180}
-                  height={220}
-                  className="lxr-pen__img"
-                />
-              </div>
-            </Float>
-
-            <Float className="lxr-float lxr-float--weight" delay={0.7} amp={10} dur={6} reduce={reduce}>
-              <div className="lxr-chip lxr-chip--metric">
-                <span className="lxr-chip__label">This week</span>
-                <strong className="lxr-chip__value">-4.2 lbs</strong>
-              </div>
-            </Float>
-
-            <Float className="lxr-float lxr-float--approved" delay={0.9} amp={12} dur={7.5} reduce={reduce}>
-              <div className="lxr-chip lxr-chip--approved">
-                <span className="lxr-chip__check">
-                  <CheckIcon />
-                </span>
-                Prescription approved
-              </div>
-            </Float>
-
-            <Float className="lxr-float lxr-float--heart" delay={1.05} amp={9} dur={5.5} reduce={reduce}>
-              <div className="lxr-chip lxr-chip--heart">
-                <HeartIcon />
-                <div>
-                  <strong>62</strong>
-                  <span>bpm</span>
-                </div>
-              </div>
-            </Float>
           </motion.div>
         </div>
       </div>
@@ -169,42 +127,6 @@ export function Hero() {
         ))}
       </motion.div>
     </section>
-  );
-}
-
-/* ── Floating wrapper (entrance + gentle infinite float) ── */
-function Float({
-  children,
-  className,
-  style,
-  delay = 0,
-  amp = 12,
-  dur = 6,
-  reduce,
-}: {
-  children: ReactNode;
-  className?: string;
-  style?: CSSProperties;
-  delay?: number;
-  amp?: number;
-  dur?: number;
-  reduce?: boolean | null;
-}) {
-  return (
-    <motion.div
-      className={className}
-      style={style}
-      initial={reduce ? false : { opacity: 0, scale: 0.8 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.8, ease: EASE, delay }}
-    >
-      <motion.div
-        animate={reduce ? undefined : { y: [0, -amp, 0] }}
-        transition={{ duration: dur, repeat: Infinity, ease: "easeInOut" }}
-      >
-        {children}
-      </motion.div>
-    </motion.div>
   );
 }
 

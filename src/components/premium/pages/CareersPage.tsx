@@ -27,7 +27,6 @@ export function CareersPage() {
   return (
     <>
       <PageHero
-        eyebrow="Careers"
         title={
           <>
             Build the future of
