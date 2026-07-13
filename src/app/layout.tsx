@@ -24,8 +24,8 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "CARMA Med Spa — Medical Weight Loss, Beautifully Simple",
-    template: "%s | CARMA Med Spa",
+    default: "Carma Med Spas — Medical Weight Loss, Beautifully Simple",
+    template: "%s | Carma Med Spas",
   },
   description:
     "Clinician-guided GLP-1 weight care — evaluated online, personalised to your body, and supported every step. Enroll for $75 and connect with a licensed provider.",
