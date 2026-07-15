@@ -10,6 +10,7 @@ const EXCLUDED_PREFIXES = ["/_next", "/api", "/_vercel"] as const;
 
 const EXCLUDED_EXACT = new Set([
   "/favicon.ico",
+  "/llms.txt",
   "/robots.txt",
   "/sitemap.xml",
   "/gone",

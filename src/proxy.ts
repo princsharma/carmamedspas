@@ -33,6 +33,6 @@ export const config = {
      * Run on all paths except static assets and Next internals.
      * WordPress query URLs (/?p=…) are still matched via searchParams in proxy.
      */
-    "/((?!_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|images/).*)",
+    "/((?!_next/static|_next/image|favicon.ico|llms.txt|robots.txt|sitemap.xml|images/).*)",
   ],
 };

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Manrope } from "next/font/google";
 import { PremiumShell } from "@/components/premium/PremiumShell";
-import { site, siteUrl } from "@/data/site";
+import { siteUrl } from "@/data/site";
 import "./globals.css";
 import "./premium.css";
 
@@ -24,23 +24,38 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Carma Med Spas — Medical Weight Loss, Beautifully Simple",
+    default: "Carma Medspas - Your Online GLP-1 Weight Loss Partner",
     template: "%s | Carma Med Spas",
   },
   description:
-    "Clinician-guided GLP-1 weight care — evaluated online, personalised to your body, and supported every step. Enroll for $75 and connect with a licensed provider.",
+    "From evaluation to maintenance, Carma Medspas is with you every step - licensed providers, personalized GLP-1 plans. Start your $75 evaluation today.",
   robots: "index, follow",
   alternates: {
-    canonical: "/",
+    canonical: "https://www.carmamedspas.com/",
   },
   openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: siteUrl,
-    siteName: site.name,
-    title: "CARMA Med Spa — Medical Weight Loss, Beautifully Simple",
+    title: "GLP-1 Weight Loss Online | Wegovy & Zepbound | Carma Medspas",
     description:
-      "Clinician-guided GLP-1 weight care — evaluated online, personalised to your body, and supported every step.",
+      "Get clinician-prescribed Wegovy, Zepbound & more — 100% online. Licensed U.S. providers, personalized dosing, free shipping. Start your $75 evaluation today.",
+    type: "website",
+    url: "https://www.carmamedspas.com",
+    siteName: "Carma Medspas",
+    locale: "en_US",
+    images: [
+      {
+        url: "https://www.carmamedspas.com/images/main_logo.svg",
+        width: 1200,
+        height: 630,
+        alt: "Carma Med Spas — clinician-guided GLP-1 weight loss care",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "GLP-1 Weight Loss Online | Wegovy & Zepbound | Carma Med Spas",
+    description:
+      "Get clinician-prescribed Wegovy, Zepbound & more — 100% online. Licensed U.S. providers, personalized dosing, free shipping. Start your $75 evaluation today.",
+    images: ["https://www.carmamedspas.com/images/main_logo.svg"],
   },
   icons: {
     icon: [

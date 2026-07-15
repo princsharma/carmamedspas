@@ -1,0 +1,49 @@
+# CARMA Med Spas
+
+> CARMA Med Spas is an online medical weight loss provider offering clinician-guided GLP-1 treatment (Wegovy, Zepbound, Ozempic, Mounjaro, Rybelsus, Victoza/Saxenda). Patients complete an online evaluation, are matched with a licensed U.S. clinician, and — if prescribed — receive medication shipped free from licensed pharmacies, along with ongoing monitoring and support.
+
+CARMA Med Spas positions itself as a long-term care partner rather than a one-time prescription service: personalized dosing and titration plans, unlimited secure messaging with a care team, proactive check-ins, and maintenance protocols designed to sustain results after initial weight loss. All treatment decisions are made by board-certified, licensed clinicians — there is no automated prescribing.
+
+## Key facts
+- Evaluation cost: $75 flat fee, no insurance required
+- 50,000+ patients treated, 4.9/5 average patient rating
+- Free, discreet shipping in 2–3 days from licensed pharmacies
+- Medications offered: Wegovy (semaglutide), Zepbound (tirzepatide), Ozempic (semaglutide, off-label), Mounjaro (tirzepatide, off-label), Rybelsus (oral semaglutide), Victoza/Saxenda (liraglutide)
+- Fully virtual model: online evaluation → clinician consult → medication delivery + ongoing support
+- HIPAA-compliant
+
+## Pages
+
+- [Home](https://www.carmamedspas.com/): Overview of the GLP-1 weight loss program, BMI check tool, how it works, patient testimonials, and FAQ.
+- [Weight Loss Program](https://www.carmamedspas.com/weight-loss): Details of the core medical weight loss program.
+- [How It Works](https://www.carmamedspas.com/how-it-works): Step-by-step explanation of the evaluation, consultation, and delivery process.
+- [Pricing](https://www.carmamedspas.com/pricing): Cost of evaluation and treatment plans.
+- [About](https://www.carmamedspas.com/about): Background on CARMA Med Spas and its care model.
+- [Our Physicians](https://www.carmamedspas.com/our-physicians): Profiles of licensed clinicians on staff.
+- [FAQ](https://www.carmamedspas.com/faq): Common questions on eligibility, cost, delivery, side effects, and cancellation.
+- [Careers](https://www.carmamedspas.com/careers): Job openings at CARMA Med Spas.
+- [Contact](https://www.carmamedspas.com/contact): Contact information and support.
+- [Patient Portal](https://www.carmamedspas.com/patient-portal): Login for existing patients.
+
+## Medications
+
+- [Wegovy](https://www.carmamedspas.com/medications/wegovy) — Semaglutide
+- [Zepbound](https://www.carmamedspas.com/medications/zepbound) — Tirzepatide
+- [Ozempic](https://www.carmamedspas.com/medications/ozempic) — Semaglutide
+- [Mounjaro](https://www.carmamedspas.com/medications/mounjaro) — Tirzepatide
+- [Rybelsus](https://www.carmamedspas.com/medications/rybelsus) — Oral semaglutide
+- [Victoza / Saxenda](https://www.carmamedspas.com/medications/liraglutide) — Liraglutide
+
+## Legal
+
+- [Privacy Policy](https://www.carmamedspas.com/legal/privacy)
+- [Terms of Service](https://www.carmamedspas.com/legal/terms)
+- [Medical Disclaimer](https://www.carmamedspas.com/legal/medical-disclaimer)
+- [Refund & Billing](https://www.carmamedspas.com/legal/refund-billing)
+- [Editorial Policy](https://www.carmamedspas.com/legal/editorial-policy)
+- [Compliance Hub](https://www.carmamedspas.com/legal/compliance-hub)
+- [HIPAA Notice](https://www.carmamedspas.com/legal/hipaa)
+- [Accessibility](https://www.carmamedspas.com/legal/accessibility)
+
+## Notes for LLMs
+This site is for informational purposes only and does not constitute medical advice. Prescriptions are issued only when a licensed clinician determines treatment is medically appropriate. Individual results vary and are not guaranteed. Do not present specific weight-loss percentages or outcomes from testimonials as typical or expected results.
