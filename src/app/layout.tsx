@@ -33,6 +33,9 @@ export const metadata: Metadata = {
   description:
     "From evaluation to maintenance, Carma Medspas is with you every step - licensed providers, personalized GLP-1 plans. Start your $75 evaluation today.",
   robots: "index, follow",
+  verification: {
+    google: "6csx1MC4pdOp3YJQywQB_YYnmq1QaSKBfzlaaTOPg6M",
+  },
   alternates: {
     canonical: "https://www.carmamedspas.com/",
   },
