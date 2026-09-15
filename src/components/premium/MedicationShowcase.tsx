@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useRef, useState } from "react";
 import { medications, type MedicationSlug } from "@/data/medications";
 import { Reveal } from "./Reveal";
@@ -42,8 +41,9 @@ export function MedicationShowcase() {
             <span className="lx-grad-text">prescribed with care.</span>
           </h2>
           <p className="lx-lead">
-            Every plan is reviewed by a licensed clinician and matched to your
-            body, history and goals — never one-size-fits-all.
+            Compounded and FDA-approved GLP-1 options — prescribed only when a
+            licensed clinician determines treatment is medically appropriate for
+            you.
           </p>
         </Reveal>
 
@@ -68,24 +68,9 @@ export function MedicationShowcase() {
                   <span className="lx-med-card__tag">{featuredTag}</span>
                   <h3 className="lx-h3">{featured.brand}</h3>
                   <p className="lx-med-card__ingredient">{featured.ingredient}</p>
-                  <p className="lx-med-card__desc">{featured.tagline}</p>
+                  <p className="lx-med-card__desc">{featured.shortDescription}</p>
                   <div className="lx-med-card__meta">
                     <span>{featured.dosing}</span>
-                    <Link
-                      href={`/medications/${featured.slug}`}
-                      className="lx-link"
-                    >
-                      View treatment
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                        <path
-                          d="M5 12h14M13 6l6 6-6 6"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </Link>
                   </div>
                 </div>
               </div>

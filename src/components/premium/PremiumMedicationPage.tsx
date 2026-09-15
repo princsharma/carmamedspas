@@ -81,7 +81,7 @@ export function PremiumMedicationPage({ medication }: { medication: Medication }
                   className="lx-btn lx-btn--lg"
                   medication={medication.plan}
                 >
-                  Start evaluation — $75
+                  Start evaluation — $39
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
                     <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
@@ -248,7 +248,7 @@ export function PremiumMedicationPage({ medication }: { medication: Medication }
             <div className="lxm-plan">
               <span className="lxm-plan__label">Get started</span>
               <p className="lxm-plan__price">
-                Evaluation from <strong>$75</strong>
+                Evaluation from <strong>$39</strong>
               </p>
               <p className="lxm-plan__desc">
                 Speak with a licensed clinician to see if {medication.brand} is
@@ -349,7 +349,7 @@ export function PremiumMedicationPage({ medication }: { medication: Medication }
                 className="lx-btn lx-btn--lg lx-btn--light"
                 medication={medication.plan}
               >
-                Start your evaluation — $75
+                Start your evaluation — $39
               </ConsultButton>
             </div>
           </Reveal>

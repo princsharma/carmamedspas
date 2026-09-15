@@ -11,7 +11,7 @@ const faqs = [
   },
   {
     q: "What does it cost to get started?",
-    a: "Your evaluation is a flat $75 — no insurance required. If you're prescribed medication, your clinician will review pricing and options transparently before anything is filled.",
+    a: "Your initial consultation is $39 — no insurance required. GLP-1 programs are $149–$249 per month all-in when prescribed, including ongoing care and medication.",
   },
   {
     q: "Are the clinicians real, licensed providers?",

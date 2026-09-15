@@ -19,7 +19,7 @@ export function PageCta({
             <h2 className="lxp-cta__title">{title}</h2>
             <p className="lxp-cta__sub">{sub}</p>
             <ConsultButton className="lx-btn lx-btn--lg lx-btn--light">
-              Start your evaluation — $75
+              Start your evaluation — $39
             </ConsultButton>
           </div>
         </Reveal>

@@ -14,10 +14,10 @@ export function PhysiciansPage() {
           <>
             Real, licensed
             <br />
-            <span className="lx-grad-text">board-certified physicians</span>
+            <span className="lx-grad-text">partners in health</span>
           </>
         }
-        subtitle="Not a chatbot, not a form on autopilot. Every plan is reviewed and approved by a licensed physician who stays with you throughout treatment."
+        subtitle="Your care is led by licensed, board-certified physicians who review your health history and help you choose a plan that fits your life."
       />
 
       <section className="lx-section lx-section--tight">

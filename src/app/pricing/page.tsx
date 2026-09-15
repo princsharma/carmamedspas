@@ -4,7 +4,7 @@ import { PricingPage } from "@/components/premium/pages/PricingPage";
 export const metadata: Metadata = {
   title: "Pricing | CARMA Med Spa",
   description:
-    "Transparent GLP-1 pricing with no hidden fees. Start with a $75 evaluation and choose a physician-guided program that fits you.",
+    "Pricing plans from $39 consultation to $149–$249/mo all-in GLP-1 programs. Choose 1, 3, 6, or 12-month compounded care when prescribed.",
 };
 
 export default function Page() {

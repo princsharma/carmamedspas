@@ -53,7 +53,7 @@ export const medications: Medication[] = [
     category: "Weight Management",
     dosing: "Once-weekly injection",
     shortDescription:
-      "Prescription weight-loss medication for adults with obesity or excess weight and related health conditions.",
+      "FDA-approved for weight management · Doctor-led prescription · Once-weekly injection",
     image: images.medications.wegovy,
     plan: "semaglutide",
     tagline: "FDA-approved semaglutide for chronic weight management",
@@ -118,7 +118,7 @@ export const medications: Medication[] = [
     category: "Weight Management",
     dosing: "Once-weekly injection",
     shortDescription:
-      "FDA-approved weight management medication containing tirzepatide for adults with obesity or related health conditions.",
+      "FDA-approved for weight management · Doctor-led prescription · Once-weekly injection",
     image: images.medications.zepbound,
     plan: "tirzepatide",
     tagline: "Dual-pathway GLP-1/GIP support for weight management",
@@ -183,7 +183,7 @@ export const medications: Medication[] = [
     category: "Diabetes Management",
     dosing: "Once-weekly injection",
     shortDescription:
-      "GLP-1 prescription medication FDA-approved for type 2 diabetes and prescribed off-label for weight management.",
+      "Same active ingredient as Wegovy® · Doctor-led off-label prescription* · Once-weekly injection",
     note: "When used for weight management, Ozempic® is prescribed off-label under clinician supervision.",
     image: images.medications.ozempic,
     plan: "semaglutide",
@@ -249,7 +249,7 @@ export const medications: Medication[] = [
     category: "Diabetes Management",
     dosing: "Once-weekly injection",
     shortDescription:
-      "Prescription medication for adults with type 2 diabetes used in personalized provider-supervised care plans.",
+      "Same active ingredient as Zepbound® · Doctor-led off-label prescription* · Once-weekly injection",
     note: "Mounjaro® may be prescribed off-label for weight management when clinically appropriate.",
     image: images.medications.mounjaro,
     plan: "tirzepatide",
@@ -316,7 +316,7 @@ export const medications: Medication[] = [
     badge: "FDA Approved",
     dosing: "Once-daily oral tablet",
     shortDescription:
-      "Oral prescription medication for adults with type 2 diabetes in a clinician-supervised personalized treatment plan.",
+      "Oral semaglutide · Doctor-led prescription* · Once-daily tablet",
     note: "Rybelsus® may be prescribed off-label for weight management when clinically appropriate.",
     image: images.medications.rybelsus,
     plan: "semaglutide",
@@ -383,7 +383,7 @@ export const medications: Medication[] = [
     badge: "FDA Approved",
     dosing: "Once-daily injection",
     shortDescription:
-      "Liraglutide is an FDA-approved prescription medication for type 2 diabetes and chronic weight management.",
+      "FDA-approved for weight management (Saxenda®) · Doctor-led prescription* · Once-daily injection",
     image: images.medications.liraglutide,
     plan: "unsure",
     tagline: "Established GLP-1 option for diabetes and weight care",

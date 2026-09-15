@@ -1,13 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { PageHero } from "./PageHero";
 import { PageCta } from "./PageCta";
 import { Reveal } from "../Reveal";
 import { ConsultButton } from "../ConsultButton";
 import { medications } from "@/data/medications";
-import { processSteps, whyPoints, testimonials } from "@/data/site";
+import { glp1MedicationIntro, processSteps, whyPoints, testimonials } from "@/data/site";
 
 export function WeightLossPage() {
   return (
@@ -20,7 +19,7 @@ export function WeightLossPage() {
             <span className="lx-grad-text">clinically</span>
           </>
         }
-        subtitle="Access FDA-approved GLP-1 medications with licensed physician consultations and ongoing support — a complete program built for sustainable results."
+        subtitle="Doctor-supervised virtual GLP-1 care with transparent all-in pricing ($149–$249/mo when prescribed) and ongoing support — built for sustainable results."
       >
         <ConsultButton className="lx-btn lx-btn--lg">Start your evaluation</ConsultButton>
       </PageHero>
@@ -57,17 +56,13 @@ export function WeightLossPage() {
               <span className="lx-eyebrow-dot" />
               The medications
             </span>
-            <h2 className="lx-h2">Six clinically studied GLP-1 options</h2>
-            <p className="lx-lead">
-              Your physician may prescribe one of these based on your eligibility
-              and health profile.
-            </p>
+            <h2 className="lx-h2">Weight loss medications available through CARMA</h2>
+            <p className="lx-lead">{glp1MedicationIntro}</p>
           </Reveal>
           <Reveal className="lxp-med-grid" stagger>
             {medications.map((m) => (
-              <Link
+              <article
                 key={m.slug}
-                href={`/medications/${m.slug}`}
                 className="lx-med-card lx-med-card--row"
                 data-lx-stagger
               >
@@ -82,12 +77,7 @@ export function WeightLossPage() {
                   <p className="lx-med-card__ingredient">{m.ingredient}</p>
                   <p className="lx-med-card__row-desc">{m.shortDescription}</p>
                 </div>
-                <span className="lx-med-card__arrow" aria-hidden="true">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                    <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </span>
-              </Link>
+              </article>
             ))}
           </Reveal>
         </div>

@@ -13,8 +13,8 @@ export const site = {
   email: "care@carmamedspas.com",
   /** External scheduling / evaluation portal — where all booking CTAs go. */
   bookingUrl:
-    "https://ongoweightloss.videovisitmd.com/f/vshop-schedule?utm_source=carma-med-spas-home-page",
-  evaluationPrice: 75,
+    "https://ongoweightloss.com/weightloss-onboard/",
+  evaluationPrice: 39,
   states: [
     "Louisiana", "Alabama", "California", "Georgia", "Colorado", "Ohio",
   ],
@@ -67,7 +67,7 @@ export const whyPoints = [
 /** Headline stats */
 export const heroStats = [
   { value: "15–20%", label: "Avg. body-weight loss*" },
-  { value: "6 Rx", label: "GLP-1 medications available" },
+  { value: "8+", label: "GLP-1 treatment options" },
   { value: "24–48h", label: "Typical prescription decision" },
   { value: "100%", label: "Licensed U.S. physicians" },
 ];
@@ -81,7 +81,11 @@ export const comparisonRows = [
   "Delivered to your door",
 ];
 
-export const comparisonCost = { carma: "$299", traditional: "$500+" };
+export const comparisonCost = { carma: "$149–$249/mo", traditional: "$298+/mo" };
+
+/** Weight-loss program medication lineup (no separate product URLs) */
+export const glp1MedicationIntro =
+  "Depending on your clinical evaluation, your provider may discuss compounded semaglutide or tirzepatide, FDA-approved options such as Wegovy®, Zepbound®, and Saxenda®, or doctor-supervised off-label use of Ozempic®, Mounjaro®, Victoza®, or Rybelsus® when appropriate.";
 
 /** Patient testimonials */
 export const testimonials = [
@@ -108,82 +112,190 @@ export const testimonials = [
   },
 ];
 
-/** Pricing plans */
+/** Pricing page category filters */
+export const pricingFilters = [
+  { id: "all", label: "All" },
+  { id: "compounded-sema", label: "Compounded Semaglutide" },
+  { id: "compounded-tirz", label: "Compounded Tirzepatide" },
+  { id: "consultation", label: "One-Time Consultation" },
+] as const;
+
+export type PricingFilterId = (typeof pricingFilters)[number]["id"];
+
+const pricingFeatureBundle = {
+  hub: "CARMA Premium Hub membership",
+  noInsurance: "No insurance required",
+} as const;
+
+function membershipFeatures(
+  consultLine: string,
+  medicationDelivery: string,
+  includeNoInsurance: boolean,
+): string[] {
+  const items = [
+    consultLine,
+    "Health history & goals review",
+    "Personalized treatment recommendations",
+    "Custom treatment plan",
+    "Free health profile report",
+    "Prescription evaluation",
+    medicationDelivery,
+    "Dosage plan",
+    "Ongoing progress monitoring",
+    "Priority support",
+    "Lifestyle guidance",
+    pricingFeatureBundle.hub,
+  ];
+  if (includeNoInsurance) items.push(pricingFeatureBundle.noInsurance);
+  return items;
+}
+
+/** Pricing plans — aligned with multi-month GLP-1 program tiers */
 export const pricingPlans = [
   {
-    name: "Online Evaluation",
-    price: "$75",
-    cadence: "one-time",
-    tagline: "See if you're a candidate",
+    id: "consultation",
+    name: "One-Time Consultation",
+    price: "$39",
+    cadence: "/ one-time payment",
+    planLength: undefined,
+    save: undefined,
     highlight: false,
-    features: [
-      "5-minute health assessment",
-      "Board-certified physician review",
-      "Treatment recommendation",
-      "No insurance required",
-    ],
-    cta: "Start evaluation",
+    ribbon: undefined,
+    categories: ["consultation", "compounded-sema", "compounded-tirz"] as const,
+    features: membershipFeatures(
+      "Virtual physician consultation",
+      "Medication delivery when prescribed",
+      false,
+    ),
+    cta: "Consult now",
     plan: "unsure" as const,
   },
   {
-    name: "Semaglutide Program",
-    price: "$299",
-    cadence: "per month",
-    tagline: "Wegovy · Ozempic · Rybelsus",
-    highlight: true,
-    features: [
-      "Physician-prescribed semaglutide",
-      "Personalized dosing & titration",
-      "Unlimited care-team messaging",
-      "Free, discreet shipping",
-      "Ongoing monitoring & adjustments",
-    ],
-    cta: "Get started",
+    id: "kickstart",
+    name: "Kickstart",
+    price: "$249",
+    cadence: "/ per month",
+    planLength: "1 Month Plan",
+    save: undefined,
+    highlight: false,
+    ribbon: undefined,
+    categories: ["compounded-sema", "compounded-tirz"] as const,
+    features: membershipFeatures(
+      "Virtual physician consultation",
+      "1-month medication delivery",
+      true,
+    ),
+    cta: "Consult now",
     plan: "semaglutide" as const,
+    planTirz: "tirzepatide" as const,
   },
   {
-    name: "Tirzepatide Program",
-    price: "$449",
-    cadence: "per month",
-    tagline: "Zepbound · Mounjaro",
-    highlight: false,
-    features: [
-      "Physician-prescribed tirzepatide",
-      "Dual-pathway GLP-1/GIP support",
-      "Personalized dosing & titration",
-      "Unlimited care-team messaging",
-      "Free, discreet shipping",
-    ],
+    id: "momentum",
+    name: "Momentum",
+    price: "$199",
+    cadence: "/ per month",
+    planLength: "3 Month Plan",
+    save: "Save $50/month",
+    highlight: true,
+    ribbon: "Most popular",
+    categories: ["compounded-sema", "compounded-tirz"] as const,
+    features: membershipFeatures(
+      "3 virtual physician consultations",
+      "3-month medication delivery",
+      true,
+    ),
     cta: "Get started",
-    plan: "tirzepatide" as const,
+    plan: "semaglutide" as const,
+    planTirz: "tirzepatide" as const,
+  },
+  {
+    id: "transform",
+    name: "Transform",
+    price: "$179",
+    cadence: "/ per month",
+    planLength: "6 Month Plan",
+    save: "Save $70/month",
+    highlight: false,
+    ribbon: undefined,
+    categories: ["compounded-sema", "compounded-tirz"] as const,
+    features: membershipFeatures(
+      "6 virtual physician consultations",
+      "6-month medication delivery",
+      true,
+    ),
+    cta: "Consult now",
+    plan: "semaglutide" as const,
+    planTirz: "tirzepatide" as const,
+  },
+  {
+    id: "beyond",
+    name: "Beyond",
+    price: "$149",
+    cadence: "/ per month",
+    planLength: "12 Month Plan",
+    save: "Save $100/month",
+    highlight: false,
+    ribbon: undefined,
+    categories: ["compounded-sema", "compounded-tirz"] as const,
+    features: membershipFeatures(
+      "12 virtual physician consultations",
+      "12-month medication delivery",
+      true,
+    ),
+    cta: "Consult now",
+    plan: "semaglutide" as const,
+    planTirz: "tirzepatide" as const,
   },
 ];
+
+/** How CARMA compares (typical membership + medication telehealth models) */
+export const pricingComparison = {
+  competitors: ["CARMA Med Spa", "Typical telehealth"] as const,
+  cost: { us: "$149 – $249", them: "$223 – $298+" },
+  rows: [
+    { label: "Care and medication in one price", us: true, them: false },
+    { label: "Separate monthly membership fee", us: false, them: true },
+    { label: "One rate per medication, not tiered by dose", us: true, them: false },
+    { label: "Monthly rate does not jump after month one", us: true, them: false },
+    { label: "Longer plans lower your rate", us: "1, 3, 6 & 12 mo", them: "Varies" },
+    { label: "Licensed provider reviews your case", us: true, them: true },
+    { label: "Start without insurance", us: true, them: true },
+  ],
+};
 
 /** Physicians */
 export const physicians = [
   {
-    name: "Dr. Vanessa Niles",
-    role: "Weight Management",
-    bio: "Focused on sustainable, individualized weight care with a decade of GLP-1 experience.",
-    image: images.doctors.niles,
-  },
-  {
-    name: "Dr. Cheryl Bugailiskis",
-    role: "Internal Medicine",
-    bio: "Believes lasting results come from combining medicine with real, ongoing guidance.",
-    image: images.doctors.bugailiskis,
-  },
-  {
-    name: "Dr. Krasne",
-    role: "Board-Certified Physician",
-    bio: "Prioritizes close monitoring so patients can move forward with total confidence.",
-    image: images.doctors.krasne,
-  },
-  {
-    name: "Dr. Miller",
-    role: "Metabolic Health",
-    bio: "Every dose decision is deliberate, personal, and reviewed against your full history.",
+    name: "Dr. Jonathan Miller, MD",
+    role: "Weight Management · Longevity Care",
+    quote:
+      "Weight loss care starts with listening — then building a plan that fits real life.",
+    bio: "I believe weight loss care starts with listening. By understanding each patient's health, challenges, and goals, I provide personalized medical guidance and practical strategies designed to fit their everyday life.",
     image: images.doctors.miller,
+  },
+  {
+    name: "Dr. David Okonkwo, MD, MBA",
+    role: "Neurology · Child Neurology",
+    quote:
+      "Exceptional care begins with taking people seriously and explaining medicine clearly.",
+    bio: "Dr. Okonkwo is an adult and pediatric neurologist with subspecialty certification in Child Neurology and extensive experience in psychiatry. He listens closely, explains complicated medicine in plain language, and believes exceptional care begins with taking people seriously.",
+    image: images.doctors.okonkwo,
+  },
+  {
+    name: "Dr. Zachary B. Kramer, MD",
+    role: "Emergency Medicine · Obesity Medicine",
+    quote:
+      "Practical, evidence-based obesity care built on clear communication.",
+    bio: "Board-certified in Emergency Medicine with over 15 years of clinical experience, now focused on telehealth and obesity medicine. His approach is practical, evidence-based, and built on clear communication.",
+    image: images.doctors.kramer,
+  },
+  {
+    name: "Dr. Gaurav K. Patel, MD",
+    role: "Family Medicine · Obesity Medicine",
+    quote:
+      "Whole-person care across telemedicine, obesity medicine, and lifestyle support.",
+    bio: "Board-certified family medicine physician licensed in 48 states and Washington, D.C. His experience spans ICU care, telemedicine, obesity medicine, and lifestyle medicine — with a focus on personalized, whole-person care.",
+    image: images.doctors.patel,
   },
 ];
 
@@ -212,7 +324,7 @@ export const siteFaqs = [
   {
     question: "Do I need insurance to get started?",
     answer:
-      "No. You can get started without insurance. Our consultation fee is $75 out-of-pocket, and medication costs vary depending on insurance coverage or discount programs.",
+      "No. You can get started without insurance. Your initial consultation is $39 out-of-pocket. If you continue with treatment, GLP-1 programs are $149–$249 per month all-in, including ongoing care and medication when prescribed.",
   },
   {
     question: "Am I a candidate for GLP-1 medication?",

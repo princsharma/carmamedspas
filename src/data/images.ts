@@ -10,6 +10,12 @@ const homeImg = (file: string, alt: string) => ({
   alt,
 });
 
+/** Medical team photos in /public/images/Doctors-images */
+const doctorImg = (file: string, alt: string) => ({
+  src: `/images/Doctors-images/${encodeURIComponent(file)}`,
+  alt,
+});
+
 export const images = {
   logo: {
     src: "/images/main_logo.svg",
@@ -72,13 +78,10 @@ export const images = {
   },
 
   doctors: {
-    miller: img("physician.jpg", "Dr. Miller, licensed weight management physician"),
-    niles: img("Dr-vanessa-niles.webp", "Dr. Vanessa Niles, licensed medical provider"),
-    bugailiskis: img(
-      "cheryl-bugailiskis.webp",
-      "Dr. Cheryl Bugailiskis, licensed medical provider",
-    ),
-    krasne: img("dr-krasne .webp", "Dr. Krasne, board-certified physician"),
+    miller: doctorImg("dr-johnathan-miller-md.webp", "Dr. Jonathan Miller, MD"),
+    okonkwo: doctorImg("doctor-david.webp", "Dr. David Okonkwo, MD, MBA"),
+    kramer: doctorImg("doctor-zachary.webp", "Dr. Zachary B. Kramer, MD"),
+    patel: doctorImg("doctor-gourav-patel.webp", "Dr. Gaurav K. Patel, MD"),
   },
 
   showcase: {

@@ -31,7 +31,7 @@ export function FinalCta() {
             </p>
             <div className="lx-finalcta__actions">
               <ConsultButton className="lx-btn lx-btn--lg lx-btn--light">
-                Start your evaluation — $75
+                Start your evaluation — $39
               </ConsultButton>
               <a href="#showcase" className="lx-link lx-finalcta__link">
                 Explore treatments

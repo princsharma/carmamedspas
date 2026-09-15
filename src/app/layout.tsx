@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     template: "%s | Carma Med Spas",
   },
   description:
-    "From evaluation to maintenance, Carma Medspas is with you every step - licensed providers, personalized GLP-1 plans. Start your $75 evaluation today.",
+    "From evaluation to maintenance, Carma Medspas is with you every step - licensed providers, personalized GLP-1 plans. Start your $39 evaluation today.",
   robots: "index, follow",
   verification: {
     google: "6csx1MC4pdOp3YJQywQB_YYnmq1QaSKBfzlaaTOPg6M",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "GLP-1 Weight Loss Online | Wegovy & Zepbound | Carma Medspas",
     description:
-      "Get clinician-prescribed Wegovy, Zepbound & more — 100% online. Licensed U.S. providers, personalized dosing, free shipping. Start your $75 evaluation today.",
+      "Get clinician-prescribed Wegovy, Zepbound & more — 100% online. Licensed U.S. providers, personalized dosing, free shipping. Start your $39 evaluation today.",
     type: "website",
     url: "https://www.carmamedspas.com",
     siteName: "Carma Medspas",
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "GLP-1 Weight Loss Online | Wegovy & Zepbound | Carma Med Spas",
     description:
-      "Get clinician-prescribed Wegovy, Zepbound & more — 100% online. Licensed U.S. providers, personalized dosing, free shipping. Start your $75 evaluation today.",
+      "Get clinician-prescribed Wegovy, Zepbound & more — 100% online. Licensed U.S. providers, personalized dosing, free shipping. Start your $39 evaluation today.",
     images: ["https://www.carmamedspas.com/images/main_logo.svg"],
   },
   icons: {

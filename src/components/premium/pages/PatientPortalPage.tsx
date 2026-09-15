@@ -85,7 +85,7 @@ export function PatientPortalPage() {
             <div className="lxp-portal__cta">
               <p>Don&apos;t have an account yet?</p>
               <ConsultButton className="lx-btn lx-btn--lg">
-                Start your evaluation — $75
+                Start your evaluation — $39
               </ConsultButton>
             </div>
           </Reveal>

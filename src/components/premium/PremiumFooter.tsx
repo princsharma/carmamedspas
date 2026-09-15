@@ -3,17 +3,13 @@
 import Link from "next/link";
 import Image from "next/image";
 import { images } from "@/data/images";
-import { medications } from "@/data/medications";
-
 const columns = [
   {
     title: "Treatments",
     links: [
       { label: "Weight-loss program", href: "/weight-loss" },
-      ...medications.slice(0, 5).map((m) => ({
-        label: m.brand,
-        href: `/medications/${m.slug}`,
-      })),
+      { label: "GLP-1 medications", href: "/#showcase" },
+      { label: "Pricing", href: "/pricing" },
     ],
   },
   {

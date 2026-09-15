@@ -9,7 +9,7 @@ const steps = [
   {
     label: "Evaluate",
     title: "Complete your online evaluation",
-    body: "Answer a few secure questions about your health and goals. Enroll for $75 — no insurance headaches, no waiting rooms.",
+    body: "Answer a few secure questions about your health and goals. Book a $39 consultation — no insurance headaches, no waiting rooms.",
     image: images.home.howItWorks.evaluation,
     icon: FormIcon,
   },
@@ -82,7 +82,7 @@ export function HowItWorks() {
 
           <Reveal className="lx-how__cta">
             <ConsultButton className="lx-btn lx-btn--lg lx-btn--light">
-              Begin your evaluation — $75
+              Begin your evaluation — $39
             </ConsultButton>
           </Reveal>
         </div>

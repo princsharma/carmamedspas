@@ -101,7 +101,7 @@ export const homepageSchema = {
       url: "https://www.carmamedspas.com/pricing",
       seller: { "@id": "https://www.carmamedspas.com/#organization" },
       description:
-        "Flat $75 online evaluation with a licensed clinician — no insurance needed. Includes review of BMI, medical history and goals to determine GLP-1 treatment eligibility.",
+        "Flat $39 online consultation with a licensed clinician — no insurance needed. Includes review of BMI, medical history and goals to determine GLP-1 treatment eligibility.",
       availability: "https://schema.org/InStock",
     },
     {
@@ -162,7 +162,7 @@ export const homepageSchema = {
           name: "What does it cost to get started?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Your evaluation is a flat $75 — no insurance required. If you're prescribed medication, your clinician will review pricing and options transparently before anything is filled.",
+            text: "Your initial consultation is $39 — no insurance required. GLP-1 programs are $149–$249 per month all-in when prescribed.",
           },
         },
         {

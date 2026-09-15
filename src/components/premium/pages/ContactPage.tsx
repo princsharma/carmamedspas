@@ -63,7 +63,7 @@ export function ContactPage() {
           <Reveal className="lxp-contact__cta">
             <h2 className="lx-h2">The fastest way to get started</h2>
             <p>Begin your online evaluation — it takes about 5 minutes.</p>
-            <ConsultButton className="lx-btn lx-btn--lg">Start your evaluation — $75</ConsultButton>
+            <ConsultButton className="lx-btn lx-btn--lg">Start your evaluation — $39</ConsultButton>
           </Reveal>
         </div>
       </section>
